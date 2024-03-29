@@ -1,6 +1,7 @@
 import React from 'react'; // Explicitly import React (may be optional based on your setup)
 import './globals.scss';
 
+// ? This refers to the head.
 export const metadata = {
   title: 'NextJS Course App',
   description: 'Your first NextJS app!',
