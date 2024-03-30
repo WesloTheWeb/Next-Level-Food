@@ -1,6 +1,6 @@
 import React from "react";
 
-export function SharePage() {
+export default function SharePage() {
     return (
         <main>
             <h1>Sharing a meal</h1>

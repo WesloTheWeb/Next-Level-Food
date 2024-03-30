@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import './globals.scss';
+import NavigationHeader from '@/components/NavigationHeader/NavigationHeader';
 
 export const metadata = {
   title: 'NextLevel Food',
@@ -16,6 +17,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
       <body>
+        <NavigationHeader />
         <div className="header-background">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <defs>

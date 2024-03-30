@@ -1,12 +1,11 @@
 import NavigationHeader from '@/components/NavigationHeader/NavigationHeader';
 import React from 'react';
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
-    <main>
-      <NavigationHeader />
+    <>
       <p>🔥 Let's get started! 🔥</p>
-    </main>
+    </>
   );
 }
 
