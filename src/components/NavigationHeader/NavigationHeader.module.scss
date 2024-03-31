@@ -8,7 +8,6 @@
     .siteLogoText {
         display: flex;
         text-decoration: none;
-        color: $logoColor;
         font-weight: bold;
         font-family: 'Montserrat', sans-serif;
         letter-spacing: 0.15rem;
@@ -21,11 +20,16 @@
             filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
 
         }
+
+        h1 {
+            color: $logoColor;
+            align-self: baseline;
+            margin: auto;
+        }
     }
 }
 
 .navLink {
-    // display: inline-block;
     padding: 1rem .75rem;
     text-transform: capitalize;
     text-decoration: none;
