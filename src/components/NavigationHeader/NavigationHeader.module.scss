@@ -1,17 +1,51 @@
+@import '../../variables.scss';
+
+.siteHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .siteLogoText {
+        display: flex;
+        text-decoration: none;
+        color: $logoColor;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 0.15rem;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+
+        & img {
+            margin: 1.5rem;
+            object-fit: contain;
+            filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
+
+        }
+    }
+}
+
 .navLink {
-    display: inline-block;
+    // display: inline-block;
     padding: 1rem .75rem;
     text-transform: capitalize;
     text-decoration: none;
     font-size: 1rem;
-    color: white;
+    color: $white;
 
     &:visited {
-        color: white;
+        color: $white;
     }
 
     &:hover {
         color: goldenrod;
         font-weight: bold;
+    }
+
+    &:active {
+        background: linear-gradient(90deg, #ff8a05, #f9b331);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 18px rgba(248, 190, 42, 0.8);
     }
 }
