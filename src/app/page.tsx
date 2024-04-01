@@ -1,13 +1,18 @@
+'use client';
+
 import Link from 'next/link';
 import classes from './page.module.scss';
+import ImageSlideshow from '@/components/ImagesSlideShow/ImagesSlideShow';
 
 const { header, slideshow, hero, cta, instructionalSectionBlurb } = classes;
 
-export default function Home({}) {
+export default function Home({ }) {
   return (
     <>
       <header className={header}>
-        <div className={slideshow}></div>
+        <div className={slideshow}>
+          <ImageSlideshow />
+        </div>
         <section>
           <div className={hero}>
             <h1>NextLevel Food for NextLevel Foodies</h1>
