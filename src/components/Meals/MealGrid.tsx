@@ -6,13 +6,17 @@ const { meals: mealsClass } = classes; // Renamed to avoid naming conflict
 
 // Define a Meal interface that matches the structure of your meal objects
 interface Meal {
-  id: string | number; // Adjust according to your actual data
-  // Define other properties of a Meal here
-}
+  id?: string | number, // Adjust according to your actual data
+  title: string,
+  slug: string,
+  image: string,
+  summary: string,
+  creator: string,
+};
 
 interface MealsGridProps {
   meals: Meal[];
-}
+};
 
 const MealsGrid = ({ meals }: MealsGridProps) => {
   return (

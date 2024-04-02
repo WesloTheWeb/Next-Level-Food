@@ -2,25 +2,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 import classes from './mealItem.module.scss';
 
-const { meal, image, headerText, content, actions } = classes;
+const { meal, foodImage, headerText, content, actions } = classes;
 
-// Define the props interface
+// ? Define the props interface
 interface MealItemProps {
     title: string;
     slug: string;
-    mealImage: string; // Assuming mealImage is a URL string. Adjust if it's more complex.
+    image: string;
     summary: string;
     creator: string;
-}
-// TODO: These props will come from database and what user will submit
-// Apply the interface to your component props
-export default function MealItem({ title, slug, mealImage, summary, creator }: MealItemProps) {
+};
+
+export default function MealItem({ title, slug, image, summary, creator }: MealItemProps) {
     return (
         <article className={meal}>
             <header>
-                <div className={image}>
-                    {/* Ensure your Image component is correctly configured to handle 'fill' */}
-                    <Image src={mealImage} alt={title} layout="fill" />
+                <div className={foodImage}>
+                    <Image src={image} alt={title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                 </div>
                 <div className={headerText}>
                     <h2>{title}</h2>
@@ -30,11 +28,11 @@ export default function MealItem({ title, slug, mealImage, summary, creator }: M
             <div className={content}>
                 <p>{summary}</p>
                 <div className={actions}>
-                    <Link href={`/meals/${slug}`} passHref>
-                        <a>View Details</a>
+                    <Link href={`/meals/${slug}`}>
+                        View Details
                     </Link>
                 </div>
             </div>
         </article>
     );
-}
+};

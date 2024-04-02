@@ -2,10 +2,12 @@ import React from 'react';
 import classes from './page.module.scss';
 import Link from 'next/link';
 import MealsGrid from '@/components/Meals/MealGrid';
+import { getMeals } from '../../../lib/meals';
 
 const { cta, header, main, highlight } = classes;
 
-export default function AboutPage() {
+export default async function MealsPage() {
+    const meals = await getMeals(); // our data from database
 
     return (
         <>
@@ -23,7 +25,7 @@ export default function AboutPage() {
                 </p>
             </header>
             <main className={main}>
-                <MealsGrid meals={[]} />
+                <MealsGrid meals={meals} />
             </main>
         </>
     );
