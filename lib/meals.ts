@@ -16,6 +16,9 @@ const db = sql('meals.db');
 export async function getMeals(): Promise<Meal[]> {
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
+    // To throw an error to show error page:
+    // throw new Error('Loading meals failed.');
+    
     // ? When you fetch the meals from the database, TypeScript should now understand the structure.
     return db.prepare('SELECT * FROM meals').all() as Meal[];
 };
