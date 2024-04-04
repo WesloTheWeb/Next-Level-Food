@@ -1,13 +1,19 @@
-import React from 'react';
-import classes from './page.module.scss';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import MealsGrid from '@/components/Meals/MealGrid';
 import { getMeals } from '../../../lib/meals';
+import Loader from '@/components/Loader/Loader';
+import classes from './page.module.scss';
 
 const { cta, header, main, highlight } = classes;
 
-export default async function MealsPage() {
-    const meals = await getMeals(); // our data from database
+async function Meals() {
+    const meals = await getMeals();
+
+    return <MealsGrid meals={meals} />
+};
+
+export default function MealsPage() {
 
     return (
         <>
@@ -25,7 +31,9 @@ export default async function MealsPage() {
                 </p>
             </header>
             <main className={main}>
-                <MealsGrid meals={meals} />
+                <Suspense fallback={<Loader />}>
+                    <Meals />
+                </Suspense>
             </main>
         </>
     );
