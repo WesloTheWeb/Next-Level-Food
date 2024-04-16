@@ -1,6 +1,7 @@
 import React from "react";
 import classes from './page.module.scss';
 import ImagePicker from "@/components/Meals/ImagePicker";
+import { shareMeal } from "../../../../lib/shareMeal";
 
 export default function ShareMealPage() {
   return (
@@ -12,7 +13,7 @@ export default function ShareMealPage() {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className={classes.main}>
-        <form className={classes.form}>
+        <form className={classes.form} action={shareMeal}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>
