@@ -1,9 +1,25 @@
+'use client';
+
 import React from "react";
 import classes from './page.module.scss';
 import ImagePicker from "@/components/Meals/ImagePicker";
-import { shareMeal } from "../../../../lib/shareMeal";
+import { shareMeal } from "../../../../lib/actions";
 
 export default function ShareMealPage() {
+  const handleSubmit = async (evnt) => {
+    evnt.preventDefault();
+    const formData = new FormData(evnt.currentTarget);
+
+    console.log(formData); // Add this line to debug
+
+
+    try {
+      await shareMeal({ formData });
+      // handle success, maybe clear the form or redirect
+    } catch (error) {
+      // handle error
+    }
+  };
   return (
     <>
       <header className={classes.header}>
@@ -13,7 +29,7 @@ export default function ShareMealPage() {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className={classes.main}>
-        <form className={classes.form} action={shareMeal}>
+        <form className={classes.form} onSubmit={handleSubmit}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>
