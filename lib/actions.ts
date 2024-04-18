@@ -1,5 +1,5 @@
 'use server';
-
+import { redirect } from "next/navigation";
 import { saveMeal } from "./meals";
 
 interface FormDataProps {
@@ -7,8 +7,7 @@ interface FormDataProps {
 };
 
 export async function shareMeal({ formData }: FormDataProps) {
-    const file = formData.get('imageFieldName') as File; // Use the correct field name for your file input
-
+    const file = formData.get('imageFieldName') as File; 
 
     const meal = {
         title: formData.get('title') as string, // Cast to string, assuming these fields are always strings
@@ -21,4 +20,5 @@ export async function shareMeal({ formData }: FormDataProps) {
     };
 
     await saveMeal(meal);
+    redirect('/meals');
 };

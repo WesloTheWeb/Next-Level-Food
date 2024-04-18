@@ -65,4 +65,16 @@ export default function ShareMealPage() {
       </main>
     </>
   );
-}
+};
+
+// TODO:
+/*
+- Major rework needed and typescript clarification. I should be able to save meals and write to the database.
+- Really rework the flow, involved pages:
+
+1. This page (meals/share/page.tsx);
+2. meals.ts
+3. actions.ts
+
+
+*/
