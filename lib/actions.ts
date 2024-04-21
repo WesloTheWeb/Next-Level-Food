@@ -7,7 +7,9 @@ interface FormDataProps {
 };
 
 export async function shareMeal({ formData }: FormDataProps) {
-    const file = formData.get('imageFieldName') as File; 
+    const file = formData.get('imageFieldName') as File
+    
+    console.log('FormData', formData); 
 
     const meal = {
         title: formData.get('title') as string, // Cast to string, assuming these fields are always strings
