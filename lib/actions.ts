@@ -1,26 +1,21 @@
 'use server';
+
 import { redirect } from "next/navigation";
-import { saveMeal } from "./meals";
+// import { saveMeal } from "./meals";
 
-interface FormDataProps {
-    formData: FormData;
-};
-
-export async function shareMeal({ formData }: FormDataProps) {
-    const file = formData.get('imageFieldName') as File
+export async function shareMeal(formData: FormData) {
     
-    console.log('FormData', formData); 
-
     const meal = {
-        title: formData.get('title') as string, // Cast to string, assuming these fields are always strings
-        summary: formData.get('summary') as string,
-        instructions: formData.get('instructions') as string,
-        // image: formData.get('image') as string, // This will not work if image is a file, you need to handle file separately
-        image: file,
-        creator: formData.get('creator') as string, 
-        creator_email: formData.get('creator_email') as string
+        title: formData.get('title'),
+        summary: formData.get('summary'),
+        instructions: formData.get('instructions'),
+        image: formData.get('image'),
+        creator: formData.get('name'), 
+        creator_email: formData.get('email')
     };
 
-    await saveMeal(meal);
+    console.log('meal', meal);
+
+    // await saveMeal(meal);
     redirect('/meals');
 };

@@ -1,6 +1,5 @@
-'use client';
+// 'use client';
 
-import React from "react";
 import classes from './page.module.scss';
 import ImagePicker from "@/components/Meals/ImagePicker";
 import { shareMeal } from "../../../../lib/actions";
@@ -44,7 +43,7 @@ export default function ShareMealPage() {
               required
             ></textarea>
           </p>
-          <ImagePicker />
+          <ImagePicker label="Your image" name="image" />
           <p className={classes.actions}>
             <button type="submit">Share Meal</button>
           </p>
@@ -53,15 +52,3 @@ export default function ShareMealPage() {
     </>
   );
 };
-
-// TODO:
-/*
-- Major rework needed and typescript clarification. I should be able to save meals and write to the database.
-- Really rework the flow, involved pages:
-
-1. This page (meals/share/page.tsx);
-2. meals.ts
-3. actions.ts
-
-
-*/
