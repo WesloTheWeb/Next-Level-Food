@@ -20,14 +20,16 @@ export default function MealDetailsPage({ params }: { params: Params }) {
                 <div className={image}>
                     <Image src={meal.image} alt={meal.title} fill />
                 </div>
+                <div className={headerText}>
+                    <h1>{meal.title}</h1>
+                    <p className={creator}>
+                        by <a href={`mailto:${'EMAIL'}`}>{meal.creator}</a>
+                    </p>
+                    <p className={MealSummary}>
+                        {meal.summary}
+                    </p>
+                </div>
             </header>
-            <h1 className={headerText}>{meal.title} Details</h1>
-            <p className={creator}>
-                by <a href={`mailto:${'EMAIL'}`}>{meal.name}</a>
-            </p>
-            <p className={MealSummary}>
-                {meal.summary}
-            </p>
             <main>
                 <p className={instructions} dangerouslySetInnerHTML={{
                     __html: meal.instructions
