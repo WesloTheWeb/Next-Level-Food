@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { saveMeal } from "./meals";
+import { revalidatePath } from "next/cache";
 
 type Meal = {
     title: string | null;
@@ -48,6 +49,7 @@ export async function shareMeal(_: any, formData: FormData) {
     }
 
     await saveMeal(meal);
+    revalidatePath('/meals');
     console.log('saveMeal', saveMeal);
     redirect('/meals');
 };
