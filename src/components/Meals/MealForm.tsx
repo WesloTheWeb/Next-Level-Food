@@ -3,9 +3,13 @@ import ImagePicker from './ImagePicker';
 import { shareMeal } from '../../../lib/actions';
 import classes from './MealForm.module.scss';
 
-const MealForm = () => {
+interface MealFormProps {
+  formAction: (event: React.FormEvent<HTMLFormElement>) => void;
+}
+
+const MealForm: React.FC<MealFormProps>  = ({formAction}) => {
     return (
-        <form className={classes.form} action={shareMeal}>
+        <form className={classes.form} action={formAction}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>
