@@ -10,7 +10,7 @@ type Meal = {
     image: File | null;
     creator: string | null;
     creator_email: string | null;
-    id?: string; // optional property
+    id?: number ; // optional property
     slug?: string; // optional property
 };
 
@@ -46,5 +46,6 @@ export async function shareMeal(formData: FormData) {
     }
 
     await saveMeal(meal);
+    console.log('saveMeal', saveMeal);
     redirect('/meals');
 };

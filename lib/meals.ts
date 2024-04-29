@@ -2,17 +2,7 @@ import fs from 'node:fs';
 import sql from 'better-sqlite3';
 import slugify from 'slugify';
 import xss from 'xss';
-
-// Define the structure of a meal object as you expect to receive from the database.
-interface Meal {
-    id: number;
-    title: string;
-    slug: string;
-    image: string;
-    summary: string;
-    instructions: string;
-    creator: string;
-};
+import { Meal, NewMeal } from '../interfaces/meal';
 
 const db = sql('meals.db');
 
@@ -31,7 +21,7 @@ export function getMeal(slug: string): Meal {
     return db.prepare('SELECT * FROM meals WHERE slug = ?').get(slug);
 };
 
-export async function saveMeal(meal: Meal) {
+export async function saveMeal(meal: NewMeal) {
     meal.slug = slugify(meal.title, { lower: true });
     meal.instructions = xss(meal.instructions);
 
